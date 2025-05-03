@@ -1,0 +1,3 @@
+<components>
+  <component id="org.example.EchoModelBuilder" bundle="echo-config-model" />
+</components>

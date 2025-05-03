@@ -1,0 +1,5 @@
+Echo = element echo {
+   attribute version { "1.0" }? &
+   element port { text }
+}
+

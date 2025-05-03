@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>echo-config-model</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>container-plugin</packaging>
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <vespa.version>8.514.24</vespa.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.yahoo.vespa</groupId>
+            <artifactId>container</artifactId>
+            <version>${vespa.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.yahoo.vespa</groupId>
+            <artifactId>component</artifactId>
+            <version>${vespa.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yahoo.vespa</groupId>
+            <artifactId>config-model</artifactId>
+            <version>${vespa.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.yahoo.vespa</groupId>
+            <artifactId>config-model-api</artifactId>
+            <version>${vespa.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.yahoo.vespa</groupId>
+                <artifactId>bundle-plugin</artifactId>
+                <!-- Find latest version at <a href="https://search.maven.org/search?q=g:com.yahoo.vespa%20a:bundle-plugin">search.maven.org/search?q=g:com.yahoo.vespa%20a:bundle-plugin</a> -->
+                <version>${vespa.version}</version>
+                <extensions>true</extensions>
+            </plugin>
+            <plugin>
+                <groupId>com.yahoo.vespa</groupId>
+                <artifactId>config-class-plugin</artifactId>
+                <version>${vespa.version}</version>
+                <executions>
+                    <execution>
+                        <id>config-gen</id>
+                        <goals>
+                            <goal>config-gen</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
